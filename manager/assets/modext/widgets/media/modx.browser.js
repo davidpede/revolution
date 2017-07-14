@@ -183,7 +183,8 @@ Ext.extend(MODx.browser.View,MODx.DataView,{
         // var d = '';
         // if (typeof(this.dir) != 'object' && typeof(this.dir) != 'undefined') { d = this.dir; }
         MODx.msg.confirm({
-            text: _('file_remove_confirm')
+            title: _('file_delete_file')
+            ,text: _('file_confirm_remove') + '<br><br>' + _('file_name') + ': ' + data.pathRelative
             ,url: MODx.config.connector_url
             ,params: {
                 action: 'browser/file/remove'

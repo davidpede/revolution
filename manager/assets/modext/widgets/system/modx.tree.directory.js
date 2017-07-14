@@ -543,7 +543,8 @@ Ext.extend(MODx.tree.Directory,MODx.tree.Tree,{
     ,removeDirectory: function(item,e) {
         var node = this.cm.activeNode;
         MODx.msg.confirm({
-            text: _('file_folder_remove_confirm')
+            title: _('file_folder_remove')
+            ,text: _('file_folder_remove_confirm') + '<br><br>' + _('directory') + ': ' + node.attributes.pathRelative
             ,url: MODx.config.connector_url
             ,params: {
                 action: 'browser/directory/remove'
@@ -563,7 +564,8 @@ Ext.extend(MODx.tree.Directory,MODx.tree.Tree,{
     ,removeFile: function(item,e) {
         var node = this.cm.activeNode;
         MODx.msg.confirm({
-            text: _('file_confirm_remove')
+            title: _('file_delete_file')
+            ,text: _('file_confirm_remove') + '<br><br>' + _('file_name') + ': ' + node.attributes.pathRelative
             ,url: MODx.config.connector_url
             ,params: {
                 action: 'browser/file/remove'
