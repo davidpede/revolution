@@ -544,7 +544,10 @@ Ext.extend(MODx.tree.Directory,MODx.tree.Tree,{
         var node = this.cm.activeNode;
         MODx.msg.confirm({
             title: _('file_folder_remove')
-            ,text: _('file_folder_remove_confirm') + '<br><br>' + _('directory') + ': ' + node.attributes.pathRelative
+            ,text: _('remove_this_confirm',{
+                type: _('directory')
+                ,name: node.attributes.pathRelative
+            }) + '<br><br>' + _('file_folder_remove_confirm')
             ,url: MODx.config.connector_url
             ,params: {
                 action: 'browser/directory/remove'
@@ -563,9 +566,13 @@ Ext.extend(MODx.tree.Directory,MODx.tree.Tree,{
 
     ,removeFile: function(item,e) {
         var node = this.cm.activeNode;
+        console.log(node);
         MODx.msg.confirm({
             title: _('file_delete_file')
-            ,text: _('file_confirm_remove') + '<br><br>' + _('file_name') + ': ' + node.attributes.pathRelative
+            ,text: _('remove_this_confirm',{
+                type: _('upload.columns.file')
+                ,name: node.attributes.pathRelative
+            }) + '<br><br>' + _('file_confirm_remove')
             ,url: MODx.config.connector_url
             ,params: {
                 action: 'browser/file/remove'
